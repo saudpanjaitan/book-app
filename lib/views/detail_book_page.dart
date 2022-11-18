@@ -30,17 +30,21 @@ class _DetailBookPageState extends State<DetailBookPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          controllers!.detailBook!.title!,
+        title: Consumer(
+          builder: (BuildContext context, BookControllers, Widget? child) {
+            return Text(
+              controllers?.detailBook?.title ?? "",
+            );
+          },
         ),
         actions: [
           Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10.0),
             child: IconButton(
               icon: const Icon(Icons.share_outlined),
               onPressed: () {
                 Share.share(
-                    "https://api.itbook.store/1.0/books/${controllers!.detailBook!.url!}");
+                    "https://api.itbook.store/1.0/books/${controllers!.detailBook!.isbn13!}");
               },
             ),
           )
@@ -68,7 +72,7 @@ class _DetailBookPageState extends State<DetailBookPage> {
                           },
                           child: Image.network(
                             controllers.detailBook!.image!,
-                            height: 150,
+                            height: 200,
                           ),
                         ),
                         Expanded(
