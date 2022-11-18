@@ -9,7 +9,10 @@ class ImageViewScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Stack(
-          children: [Image.network(imageUrl), const BackButton()],
+          children: [
+            Image.network(imageUrl),
+            const BackButton(),
+          ],
         ),
       ),
     );

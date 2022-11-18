@@ -116,18 +116,19 @@ class _DetailBookPageState extends State<DetailBookPage> {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(),
-                          onPressed: () async {
-                            Uri uri = Uri.parse(controllers.detailBook!.url!);
-                            try {
-                              (await canLaunchUrl(uri))
-                                  ? launchUrl(uri)
-                                  : debugPrint("Tidak berhasil navigasi");
-                            } catch (e) {
-                              debugPrint("error");
-                            }
-                          },
-                          child: const Text("BUY")),
+                        style: ElevatedButton.styleFrom(),
+                        onPressed: () async {
+                          Uri uri = Uri.parse(controllers.detailBook!.url!);
+                          try {
+                            (await canLaunchUrl(uri))
+                                ? launchUrl(uri)
+                                : debugPrint("Tidak berhasil navigasi");
+                          } catch (e) {
+                            debugPrint("error");
+                          }
+                        },
+                        child: const Text("BUY"),
+                      ),
                     ),
                     const SizedBox(height: 20),
                     Text(controllers.detailBook!.desc!),

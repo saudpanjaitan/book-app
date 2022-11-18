@@ -18,13 +18,10 @@ class BookControllers extends ChangeNotifier {
       bookList = BookListResponse.fromJson(jsonBookList);
       notifyListeners();
     }
-
-    // print(await http.read(Uri.https('example.com', 'foobar.txt')));
   }
 
   BookDetailResponse? detailBook;
   fetchDetailBookApi(isbn) async {
-    // print(widget.isbn);
     var url = Uri.parse('https://api.itbook.store/1.0/books/$isbn');
     var response = await http.get(url);
 
