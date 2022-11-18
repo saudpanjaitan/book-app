@@ -3,6 +3,7 @@ import 'package:book_app/views/image_view_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share/share.dart';
 
 class DetailBookPage extends StatefulWidget {
   const DetailBookPage({
@@ -29,7 +30,21 @@ class _DetailBookPageState extends State<DetailBookPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Detail"),
+        title: Text(
+          controllers!.detailBook!.title!,
+        ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: IconButton(
+              icon: const Icon(Icons.share_outlined),
+              onPressed: () {
+                Share.share(
+                    "https://api.itbook.store/1.0/books/${controllers!.detailBook!.url!}");
+              },
+            ),
+          )
+        ],
       ),
       body: Consumer<BookControllers>(builder: (context, controllers, child) {
         return controllers.detailBook == null
@@ -144,7 +159,20 @@ class _DetailBookPageState extends State<DetailBookPage> {
                         Text("Language : ${controllers.detailBook!.language!}"),
                       ],
                     ),
+                    const SizedBox(height: 15),
                     const Divider(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: const [
+                        Text(
+                          "Similar",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                     controllers.similiarBooks == null
                         ? const CircularProgressIndicator()
                         : SizedBox(
