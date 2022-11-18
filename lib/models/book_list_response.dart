@@ -17,7 +17,7 @@ class BookListResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['error'] = error;
     data['total'] = total;
     if (books != null) {
@@ -53,7 +53,7 @@ class Books {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['title'] = title;
     data['subtitle'] = subtitle;
     data['isbn13'] = isbn13;

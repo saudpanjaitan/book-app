@@ -20,6 +20,7 @@ class _DetailBookPageState extends State<DetailBookPage> {
 
   @override
   void initState() {
+    super.initState();
     controllers = Provider.of<BookControllers>(context, listen: false);
     controllers!.fetchDetailBookApi(widget.isbn);
   }
@@ -134,12 +135,12 @@ class _DetailBookPageState extends State<DetailBookPage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Text("Year : " + controllers.detailBook!.year!),
-                        Text("ISBN " + controllers.detailBook!.isbn13!),
-                        Text(controllers.detailBook!.pages! + " Page"),
-                        Text("Publisher : " +
-                            controllers.detailBook!.publisher!),
-                        Text("Language : " + controllers.detailBook!.language!),
+                        Text("Year : ${controllers.detailBook!.year!}"),
+                        Text("ISBN ${controllers.detailBook!.isbn13!}"),
+                        Text("${controllers.detailBook!.pages!} Page"),
+                        Text(
+                            "Publisher : ${controllers.detailBook!.publisher!}"),
+                        Text("Language : ${controllers.detailBook!.language!}"),
                       ],
                     ),
                     const Divider(),
