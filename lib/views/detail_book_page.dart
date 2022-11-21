@@ -192,22 +192,34 @@ class _DetailBookPageState extends State<DetailBookPage> {
                                       controllers.similiarBooks!.books![index];
                                   return SizedBox(
                                     width: 100,
-                                    child: Column(
-                                      children: [
-                                        Image.network(
-                                          current.image!,
-                                          height: 100,
-                                        ),
-                                        Text(
-                                          current.title!,
-                                          maxLines: 3,
-                                          textAlign: TextAlign.center,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: const TextStyle(
-                                            fontSize: 12,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                DetailBookPage(
+                                              isbn: current.isbn13!,
+                                            ),
                                           ),
-                                        )
-                                      ],
+                                        );
+                                      },
+                                      child: Column(
+                                        children: [
+                                          Image.network(
+                                            current.image!,
+                                            height: 100,
+                                          ),
+                                          Text(
+                                            current.title!,
+                                            maxLines: 3,
+                                            textAlign: TextAlign.center,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: const TextStyle(
+                                              fontSize: 12,
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   );
                                 },
