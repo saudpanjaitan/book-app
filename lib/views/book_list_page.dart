@@ -61,9 +61,17 @@ class _BookListPageState extends State<BookListPage> {
                                 children: [
                                   Text(currentBook.title!),
                                   Text(currentBook.subtitle!),
+                                  const SizedBox(height: 10),
                                   Align(
-                                      alignment: Alignment.topRight,
-                                      child: Text(currentBook.price!)),
+                                      alignment: Alignment.topLeft,
+                                      child: Text(
+                                        currentBook.price!,
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.green,
+                                        ),
+                                      )),
                                 ],
                               ),
                             ),

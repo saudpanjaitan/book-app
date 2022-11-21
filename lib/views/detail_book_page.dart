@@ -118,6 +118,7 @@ class _DetailBookPageState extends State<DetailBookPage> {
                                       color: Colors.grey,
                                     ),
                                   ),
+                                  const SizedBox(height: 10),
                                   Text(
                                     controllers.detailBook!.price!,
                                     style: const TextStyle(
